@@ -1,0 +1,10 @@
+<h1>Shops</h1>
+
+<div id="shops">
+  <% @shops.each do |shop| %>
+    <%= shop.name %>
+    <p>
+      <%= link_to "Shop's schedule", shop %>
+    </p>
+  <% end %>
+</div>
