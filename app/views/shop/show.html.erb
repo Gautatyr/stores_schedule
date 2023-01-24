@@ -1,10 +1,33 @@
 <h1> <%= @shop.name %> </h1>
 
+<h2> Schedule: </h2>
+
 <% schedule = @shop.schedule %>
-<div>Lundi: <%= schedule.lundi %></div>
-<div>Mardi: <%= schedule.mardi %></div>
-<div>Mercredi: <%= schedule.mercredi %></div>
-<div>Jeudi: <%= schedule.jeudi %></div>
-<div>Vendredi: <%= schedule.vendredi %></div>
-<div>Samedi: <%= schedule.samedi %></div>
-<div>Dimanche: <%= schedule.dimanche %></div>
+
+<% day = Date.today.strftime("%A") %>
+<% days = { "Monday" => schedule.lundi, "Tuesday" => schedule.mardi, "Wednesday" => schedule.mercredi , "Thursday" => schedule.jeudi ,"Friday" => schedule.vendredi,"Saturday" => schedule.samedi,"Sunday" => schedule.dimanche}%>
+
+<% found = false %>
+<% days.each do |key, hour| %>
+  <% if found == true %>
+    <div><%= key %>: <%= hour %></div>
+    <% days.delete(key) %> 
+  <% elsif key == day %> 
+    <div><b><%= key %>: <%= hour %> </b></div>
+    <% days.delete(key) %> 
+    <% found = true %> 
+  <% end %>
+<% end %>
+
+<% days.each do |key, hour| %>
+  <div><%= key %>: <%= hour %></div>
+<% end %>
+
+<br>
+<%= link_to 'Shop index', shop_index_path %>
+
+
+
+
+
+
