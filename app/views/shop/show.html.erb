@@ -1,1 +1,10 @@
 <h1> <%= @shop.name %> </h1>
+
+<% schedule = @shop.schedule %>
+<div>Lundi: <%= schedule.lundi %></div>
+<div>Mardi: <%= schedule.mardi %></div>
+<div>Mercredi: <%= schedule.mercredi %></div>
+<div>Jeudi: <%= schedule.jeudi %></div>
+<div>Vendredi: <%= schedule.vendredi %></div>
+<div>Samedi: <%= schedule.samedi %></div>
+<div>Dimanche: <%= schedule.dimanche %></div>
